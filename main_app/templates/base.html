@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +9,10 @@
   <link
     rel="shortcut icon"
     type="image/png"
-    href=""
+    href="{% static 'images/main-logo.jpeg' %}"
   >
   <title>Bird Collector</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
   {% endblock %}
 </head>
@@ -17,8 +20,9 @@
   <header>
     <div class="header-logo-container">
       <a href="/">
-        <img 
-          src=""
+        <img
+          height=50px
+          src="{% static 'images/s-logo.avif' %}"
           alt="The Bird Collector Logo"
         >
       </a>
