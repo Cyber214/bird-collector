@@ -19,21 +19,23 @@
 <section class="card-container">
   {% for bird in birds %}
     <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/card.jpeg' %}" 
-            alt="A skater boy bird"
-          >
+      <a href="{% url 'bird-detail' bird.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/card.jpeg' %}" 
+              alt="A skater boy bird"
+            >
+          </div>
+          <h2 class="card-title">{{ bird.name }}</h2>
+          {% if bird.age > 0 %}
+            <p>A {{ bird.age }} year old {{ bird.species }}</p>
+          {% else %}
+            <p>A {{ bird.species }} chick.</p>
+          {% endif %}
+          <p><small>{{ bird.description }}</small></p>        
         </div>
-        <h2 class="card-title">{{ bird.name }}</h2>
-        {% if bird.age > 0 %}
-          <p>A {{ bird.age }} year old {{ bird.species }}</p>
-        {% else %}
-          <p>A {{ bird.species }} chick.</p>
-        {% endif %}
-        <p><small>{{ bird.description }}</small></p>        
-      </div>
+      </a>
     </div>
   {% endfor %}
 </section>
