@@ -18,7 +18,7 @@ birds = [
 
 # Create your views here.
 def home(request):
-  return HttpResponse('<h1>Hello 🕊Bird Brains🦅</h1>')
+  return HttpResponse(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
