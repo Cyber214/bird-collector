@@ -29,11 +29,20 @@
     </div>
     <nav>
       <ul>
-        <li><a href="{% url 'bird-index' %}">All Birds</a></li>
-        <li><a href="{% url 'toy-index' %}">All Toys</a></li>
-        <li><a href="{% url 'bird-create' %}">Add a Bird</a></li>
-        <li><a href="{% url 'toy-create' %}">Add a Toy</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
+        {% if user.is_authentibirded %}
+        {% comment %} show if user is loged in {% endcomment %}
+          <li><a href="{% url 'bird-index' %}">All Birds</a></li>
+          <li><a href="{% url 'toy-index' %}">All Toys</a></li>
+          <li><a href="{% url 'bird-create' %}">Add a Bird</a></li>
+          <li><a href="{% url 'toy-create' %}">Add a Toy</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+        {% comment %} show if user isn't loged in {% endcomment %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
