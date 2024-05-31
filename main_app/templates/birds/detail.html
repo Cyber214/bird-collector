@@ -14,18 +14,22 @@
 <section class="bird-container">
   <div class="bird-img">
     <img 
-    src="{% static 'images/card.jpeg' %}" 
+      src="{% static 'images/sk8r-boi-bird.svg' %}" 
       alt="A skater boy bird"
     >
   </div>
   <div class="bird-details">
-    <h2 class="card-title">{{ bird.name }}</h2>
-          {% if bird.age > 0 %}
-            <p>A {{ bird.age }} year old {{ bird.species }}</p>
-          {% else %}
-            <p>A {{ bird.species }} chick.</p>
-          {% endif %}
-          <p><small>{{ bird.description }}</small></p> 
+    <h1>{{ bird.name }}</h1>
+    {% if bird.age > 0 %}
+      <h2>A {{ bird.age }} year old {{ bird.breed }}</h2>
+    {% else %}
+      <h2>A {{ bird.breed }} kitten.</h2>
+    {% endif %}
+    <p>{{ bird.description }}</p>
+    <div class="bird-actions">
+      <a href="{% url 'bird-update' bird.id %}" class='btn warn'>Edit</a>
+      <a href="{% url 'bird-delete' bird.id %}" class='btn danger'>Delete</a>
+    </div>
   </div>
 </section>
 

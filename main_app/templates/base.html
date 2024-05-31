@@ -21,16 +21,19 @@
     <div class="header-logo-container">
       <a href="/">
         <img
-          height=50px
-          src="{% static 'images/s-logo.avif' %}"
+          height=20px
+          src="{% static 'images/main-logo.png' %}"
           alt="The Bird Collector Logo"
         >
       </a>
     </div>
     <nav>
       <ul>
-        <li><a href="/birds">All Birds</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url 'bird-index' %}">All Birds</a></li>
+        <li><a href="{% url 'toy-index' %}">All Toys</a></li>
+        <li><a href="{% url 'bird-create' %}">Add a Bird</a></li>
+        <li><a href="{% url 'toy-create' %}">Add a Toy</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
   </header>

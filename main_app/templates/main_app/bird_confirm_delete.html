@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Release Bird?</h1>
+  <img src="{% static 'images/nerd-bird.svg' %}" alt="A bird using a computer"/>
+</div>
+<h2>Are you sure you want to set {{ object.name }} free?</h2>
+
+<form action="" method='post' class='form'>
+  {% csrf_token %}
+  <a href="{% url 'bird-detail' bird.id %}" class='btn secondary'>
+    Cancel
+  </a>
+  <button type="submit" class='btn danger'>Release {{ bird.name }}</button>
+</form>
+{% endblock %}
